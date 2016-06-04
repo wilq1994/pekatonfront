@@ -67,6 +67,30 @@ app.factory('customersPromising', function($http, $q){
     };
 });
 
+app.factory('orders', function($http, $q){
+    var purchases = null;
+
+    return {
+        getAll: function(){
+            return $http.get('http://localhost:8080/purchase');
+        },
+        getById: function(id){
+            return  $q(function(resolve, reject) {
+                var result = null;
+
+                $http.get('http://localhost:8080/purchase').then(function(data){
+                    purchases = data.data;
+                    angular.forEach(purchases, function(purchase){
+                        if(purchase.purchaseId === parseInt(id)) result = node;
+                    });
+                    resolve(result);
+                });
+            });
+        }
+    };
+});
+
+
 
 app.controller('appCtrl', function($scope, $location, page){
     $scope.page = page;

@@ -13,7 +13,14 @@
         <script src="node_modules/angular-animate/angular-animate.min.js"></script>
     </head>
     <body ng-controller="appCtrl">
-        <div class="l-wrapper">
+        <div class="loading" ng-if="true">
+            <div>
+                <div style="display: flex;">
+                    <img src="img/nyan.gif" style="transform: scale(-1,1);"><img src="img/pigyan.gif">
+                </div>
+            </div>
+        </div>
+        <div class="l-wrapper" ng-cloak>
             <div class="l-sidebar">
                 <img src="img/logo.png" class="l-sidebar__logo">
                 <ul class="l-sidebar__nav">

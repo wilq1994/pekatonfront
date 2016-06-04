@@ -23,8 +23,49 @@ app.controller('customersCtrl', function($scope, $http, page, customers){
 
 app.controller('customerCtrl', function($scope, $routeParams, page, customersPromising){
     page.setTitle('Klient');
-
+    
     customersPromising.getById($routeParams.id).then(function(customer){
         $scope.customer = customer;
     });
+});
+
+app.directive('numberInt', function($timeout) {
+    return {
+        link: function( $scope, elem, attrs ) {
+          elem.ready(function(){
+              attrs.val = 0;
+              attrs.max = elem.attr('data-int');
+
+              function loop(){
+                  attrs.val++;
+                  elem.text(attrs.val);
+                  if(attrs.val < attrs.max) $timeout(loop,200);
+                  else elem.text(attrs.max);
+              }
+
+              $timeout(loop,500);
+          })
+       }
+    };
+});
+
+
+app.directive('numberDouble', function($timeout) {
+    return {
+        link: function( $scope, elem, attrs) {
+          elem.ready(function(){
+              attrs.val = 0.00;
+              attrs.max = elem.attr('data-double');
+
+              function loop(){
+                  attrs.val += attrs.max/100;
+                  elem.text(attrs.val.toFixed(2));
+                  if(attrs.val < attrs.max) $timeout(loop,10);
+                  else elem.text(attrs.max);
+              }
+
+              $timeout(loop,500);
+          })
+       }
+    };
 });

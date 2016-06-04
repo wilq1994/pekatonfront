@@ -1,28 +1,44 @@
 <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
-<table class="c-table c-table--striped">
+<table class="c-table c-table--striped c-table--details c-table--id">
     <thead>
         <tr>
-            <th>Nazwisko</th>
-            <th>Email</th>
-            <th>Wiek</th>
-            <th>Płeć</th>
-            <th>Kod pocztowy</th>
-            <th>Edukacja</th>
+            <th>Id <a href="" ng-click="order('purchaseId')" class="c-table__sort" ng-class="getClass('purchaseId')"></a></th>
+            <th>Order date <a href="" ng-click="order('orderDate')" class="c-table__sort" ng-class="getClass('orderDate')"></a></th>
+            <th>Value <a href="" ng-click="order('value')" class="c-table__sort" ng-class="getClass('value')"></a></th>
+            <th>Delivery <a href="" ng-click="order('delivery')" class="c-table__sort" ng-class="getClass('delivery')"></a></th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="customer in customers | filter:search">
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.age }}</td>
-            <td>{{ customer.gender }}</td>
-            <td>{{ customer.postalcode }}</td>
-            <td>{{ customer.education }}</td>
+        <tr class="c-table__row" ng-repeat-start="purchase in purchases | orderBy:predicate:reverse | filter:search" ng-class-even="'even'" ng-click="toggleDetails($index)">
+            <td>{{ purchase.purchaseId }}</td>
+            <td>{{ purchase.orderDate }}</td>
+            <td>{{ purchase.value | number:2 }}</td>
+            <td>{{ purchase.delivery }}</td>
+        </tr>
+        <tr class="c-table__details" ng-repeat-end  ng-class-even="'even'">
+            <td colspan="4">
+                <div class="l-row l-row--2">
+                    <div class="l-row__column">
+                        <ul>
+                            <li><strong>Customer id:</strong>{{ purchase.customer.customerId }}</li>
+                            <li><strong>Gender:</strong>{{ purchase.customer.gender }}</li>
+                            <li><strong>Post code:</strong>{{ purchase.customer.postCode }}</li>
+                            <li><strong>Education:</strong>{{ purchase.customer.education }}</li>
+                            <li><strong>E-mail:</strong>{{ purchase.customer.eMail }}</li>
+                        </ul>
+                    </div>
+                    <div class="l-row__column">
+                        <div ng-repeat="product in purchase.products">
+                            <ul>
+                                <li><strong>Product id:</strong>{{ product.productId }}</li>
+                                <li><strong>Name:</strong>{{ product.name }}</li>
+                                <li><strong>Code:</strong>{{ product.code }}</li>
+                                <li><strong>Price:</strong>{{ product.price }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>
-
-<div style="display: flex;">
-    <img src="img/nyan.gif" style="transform: scale(-1,1);"><img src="img/pigyan.gif">
-</div>
-Dla Justynki <3
