@@ -45,6 +45,11 @@ body {
     display: flex;
     flex-direction: column;
 }
+    .l-sidebar__logo {
+        display: block;
+        max-width: 80%;
+        margin: 30px auto;
+    }
     .l-sidebar__title {
         margin: 40px 20px 20px;
         font-weight: 400;
@@ -130,12 +135,17 @@ body {
 }
     .c-box h3 {
         color: #336699;
-        font-size: 20px;
+        font-size: 22px;
         font-weight: 400;
         margin: 0 0 20px;
     }
     .c-box .c-table {
         box-shadow: none;
+        margin-bottom: 0;
+    }
+    .c-box .c-search {
+        box-shadow: none;
+        border: 1px solid #f0f0f0;
     }
 
 .c-table {

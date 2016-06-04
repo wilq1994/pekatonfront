@@ -1,7 +1,7 @@
 app.controller('dashboardCtrl', function($scope, $http, Page){
     Page.setTitle('Dashboard');
 
-    $scope.predicate = 'customer.id';
+    $scope.predicate = 'factor';
     $scope.reverse = true;
     $scope.order = function(predicate) {
         $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
@@ -15,16 +15,16 @@ app.controller('dashboardCtrl', function($scope, $http, Page){
         return null;
     }
     $scope.getColor = function(ratio){
-        if(ratio>23) return 'c-table__ratio1';
-        else if(ratio>22) return 'c-table__ratio2';
-        else if(ratio>21) return 'c-table__ratio3';
-        else if(ratio>20) return 'c-table__ratio4';
-        else if(ratio>19) return 'c-table__ratio5';
-        else if(ratio<11) return 'c-table__ratio10';
-        else if(ratio<12) return 'c-table__ratio9';
-        else if(ratio<13) return 'c-table__ratio8';
-        else if(ratio<14) return 'c-table__ratio7';
-        else if(ratio<15) return 'c-table__ratio6';
+        if(ratio>1) return 'c-table__ratio1';
+        else if(ratio>0.5) return 'c-table__ratio2';
+        else if(ratio>0.4) return 'c-table__ratio3';
+        else if(ratio>0.3) return 'c-table__ratio4';
+        else if(ratio>0.2) return 'c-table__ratio5';
+        else if(ratio<0.009) return 'c-table__ratio10';
+        else if(ratio<0.09) return 'c-table__ratio9';
+        else if(ratio<0.05) return 'c-table__ratio8';
+        else if(ratio<0.9) return 'c-table__ratio7';
+        else if(ratio<0) return 'c-table__ratio6';
     }
 
     $http.get('http://localhost:8080/customer/promising')

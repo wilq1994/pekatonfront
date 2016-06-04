@@ -1,7 +1,7 @@
 app.controller('customersCtrl', function($scope, $http, Page){
     Page.setTitle('Klienci');
 
-    $scope.predicate = 'name';
+    $scope.predicate = 'customerId';
     $scope.reverse = false;
     $scope.order = function(predicate) {
         $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
@@ -15,7 +15,7 @@ app.controller('customersCtrl', function($scope, $http, Page){
         return null;
     }
 
-    $http.get('script/customers/data.json')
+    $http.get('http://localhost:8080/customer')
         .then(function(result){
             $scope.customers = result.data;
         });
