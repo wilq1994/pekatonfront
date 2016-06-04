@@ -1,33 +1,55 @@
 <section class="c-box">
     <h3>Obiecujący klienci</h3>
     <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
-    <table class="c-table">
+    <table class="c-table c-table--id" ng-controller="customerPromisingCtrl">
         <thead>
             <tr>
                 <th>Id <a href="" ng-click="order('customerId')" class="c-table__sort" ng-class="getClass('customerId')"></a></th>
                 <th>Email <a href="" ng-click="order('eMail')" class="c-table__sort" ng-class="getClass('eMail')"></a></th>
-                <th>Płeć</th>
-                <th>Kod pocztowy  <a href="" ng-click="order('postCode')" class="c-table__sort" ng-class="getClass('postCode')"></a></th>
-                <th>Edukacja <a href="" ng-click="order('education')" class="c-table__sort" ng-class="getClass('education')"></a></th>
                 <th>Factor <a href="" ng-click="order('factor')" class="c-table__sort" ng-class="getClass('factor')"></a></th>
+                <th>averageVisitTime <a href="" ng-click="order('averageVisitTime')" class="c-table__sort" ng-class="getClass('averageVisitTime')"></a></th>
+                <th>visitsCount <a href="" ng-click="order('visitsCount')" class="c-table__sort" ng-class="getClass('visitsCount')"></a></th>
+                <th>directVisitsCount <a href="" ng-click="order('directVisitsCount')" class="c-table__sort" ng-class="getClass('directVisitsCount')"></a></th>
+                <th>purchasesCount <a href="" ng-click="order('purchasesCount')" class="c-table__sort" ng-class="getClass('purchasesCount')"></a></th>
+                <th>purchasesSummaryCost <a href="" ng-click="order('purchasesSummaryCost')" class="c-table__sort" ng-class="getClass('purchasesSummaryCost')"></a></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="node in customers | orderBy:predicate:reverse | filter:search" ng-class="getColor(node.factor)">
                 <td>{{ node.customer.customerId }}</td>
-                <td>{{ node.customer.eMail }}</td>
-                <td>{{ node.customer.gender }}</td>
-                <td>{{ node.customer.postCode }}</td>
-                <td>{{ node.customer.education }}</td>
-                <td>{{ node.factor }}</td>
+                <td><a href="#/klienci/{{ node.customer.customerId }}">{{ node.customer.eMail }}</a></td>
+                <td>{{ node.factor | number:2 }}</td>
+                <td>{{ node.averageVisitTime | number:2 }}</td>
+                <td>{{ node.visitsCount }}</td>
+                <td>{{ node.directVisitsCount }}</td>
+                <td>{{ node.purchasesCount }}</td>
+                <td>{{ node.purchasesSummaryCost | number:2 }}</td>
             </tr>
         </tbody>
     </table>
 </section>
-<div class="l-row">
+<div class="l-row l-row--2">
     <div class="l-row__column">
         <section class="c-box">
             <h3>Najlepsze produkty</h3>
+            <table class="c-table c-table--id" ng-controller="popularProductsCtrl">
+                <thead>
+                    <tr>
+                        <th>Id <a href="" ng-click="order('productId')" class="c-table__sort" ng-class="getClass('productId')"></a></th>
+                        <th>Name <a href="" ng-click="order('name')" class="c-table__sort" ng-class="getClass('name')"></a></th>
+                        <th>Code <a href="" ng-click="order('code')" class="c-table__sort" ng-class="getClass('code')"></a></th>
+                        <th>Price <a href="" ng-click="order('price')" class="c-table__sort" ng-class="getClass('price')"></a></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="product in popularProducts | orderBy:predicate:reverse">
+                        <td>{{ product.productId }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.code }}</td>
+                        <td>{{ product.price }}</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </div>
     <div class="l-row__column">

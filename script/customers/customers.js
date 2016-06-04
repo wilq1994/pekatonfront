@@ -1,8 +1,13 @@
-app.controller('customersCtrl', function($scope, $http, Page){
-    Page.setTitle('Klienci');
+app.controller('customersCtrl', function($scope, $http, page, customers){
+    page.setTitle('Klienci');
+
+    customers.getAll().then(function(result){
+        $scope.customers = result.data;
+    });
 
     $scope.predicate = 'customerId';
     $scope.reverse = false;
+
     $scope.order = function(predicate) {
         $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
         $scope.predicate = predicate;
@@ -14,9 +19,12 @@ app.controller('customersCtrl', function($scope, $http, Page){
         }
         return null;
     }
+});
 
-    $http.get('http://localhost:8080/customer')
-        .then(function(result){
-            $scope.customers = result.data;
-        });
+app.controller('customerCtrl', function($scope, $routeParams, page, customersPromising){
+    page.setTitle('Klient');
+
+    customersPromising.getById($routeParams.id).then(function(customer){
+        $scope.customer = customer;
+    });
 });

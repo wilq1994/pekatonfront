@@ -1,3 +1,3 @@
-app.controller('ordersCtrl', function($scope, Page){
-    Page.setTitle('Zamówienia');
+app.controller('ordersCtrl', function($scope, page){
+    page.setTitle('Zamówienia');
 });

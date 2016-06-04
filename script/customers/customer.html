@@ -1,0 +1,51 @@
+<section class="c-box">
+    <table class="l-list">
+        <tr><td>ID:</td><td>{{ customer.customer.customerId }}</td></tr>
+        <tr><td>E-mail</td><td>{{ customer.customer.eMail }}</td></tr>
+        <tr><td>Gender</td><td>{{ customer.customer.gender }}</td></tr>
+        <tr><td>Postal</td><td>code {{ customer.customer.postCode }}</td></tr>
+        <tr><td>Education</td><td>{{ customer.customer.education }}</td></tr>
+    </table>
+</section>
+
+<div class="l-row l-row--3">
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Factor</h3>
+            <strong>{{ customer.factor | number:2 }}</strong>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Average visit time</h3>
+            <strong>{{ customer.averageVisitTime | number:2 }}</strong>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Visits count</h3>
+            <strong>{{ customer.visitsCount }}</strong>
+        </section>
+    </div>
+</div>
+
+<div class="l-row l-row--3">
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Direct visits count</h3>
+            <strong>{{ customer.directVisitsCount }}</strong>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Purchases count</h3>
+            <strong>{{ customer.purchasesCount }}</strong>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box c-box--number">
+            <h3>Purchases summary cost</h3>
+            <strong>{{ customer.purchasesSummaryCost | number:2 }}</strong>
+        </section>
+    </div>
+</div>

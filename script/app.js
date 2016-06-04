@@ -6,10 +6,11 @@ app.config(['$routeProvider', function($routeProvider){
         .when("/klienci", { templateUrl: 'script/customers/customers.html', controller: 'customersCtrl' })
         .when("/zamowienia", { templateUrl: 'script/orders/orders.html', controller: 'ordersCtrl' })
         .when("/produkty", { templateUrl: 'script/products/products.html', controller: 'productsCtrl' })
+        .when("/klienci/:id", { templateUrl: 'script/customers/customer.html', controller: 'customerCtrl' })
         .otherwise('/');
 }]);
 
-app.factory('Page', function() {
+app.factory('page', function() {
    var title = 'Dashboard';
    return {
      title: function() { return title; },
@@ -17,8 +18,59 @@ app.factory('Page', function() {
    };
 });
 
-app.controller('appCtrl', function($scope, $location, Page){
-    $scope.Page = Page;
+
+app.factory('customers', function($http){
+    var customers = null;
+
+    return {
+        getAll: function(){
+            return $http.get('http://localhost:8080/customer');
+        },
+        getById: function(id){
+            return  $q(function(resolve, reject) {
+                var result = null;
+
+                $http.get('http://localhost:8080/customer').then(function(result){
+                    console.log(result)
+                    customers = result.data;
+                    angular.forEach(customers, function(customer){
+                        if(customer.customerId === parseInt(id)) result = customer;
+                    });
+                    resolve(result);
+                });
+            });
+        }
+    };
+});
+
+
+app.factory('customersPromising', function($http, $q){
+    var customers = null;
+
+    return {
+        getAll: function(){
+            return $http.get('http://localhost:8080/customer/promising');
+        },
+        getById: function(id){
+            return  $q(function(resolve, reject) {
+                var result = null;
+
+                $http.get('http://localhost:8080/customer/promising').then(function(data){
+                    customers = data.data;
+                    angular.forEach(customers, function(node){
+                        if(node.customer.customerId === parseInt(id)) result = node;
+                    });
+                    resolve(result);
+                });
+            });
+        }
+    };
+});
+
+
+app.controller('appCtrl', function($scope, $location, page){
+    $scope.page = page;
+
     $scope.getClass = function(path){
         if($location.path() == path) {
             return 'is-active';

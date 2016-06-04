@@ -1,23 +1,19 @@
 <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
-<table class="c-table c-table--striped">
+<table class="c-table c-table--id c-table--striped">
     <thead>
         <tr>
-            <th>Nazwisko</th>
-            <th>Email</th>
-            <th>Wiek</th>
-            <th>Płeć</th>
-            <th>Kod pocztowy</th>
-            <th>Edukacja</th>
+            <th>Id <a href="" ng-click="order('productId')" class="c-table__sort" ng-class="getClass('productId')"></a></th>
+            <th>Name <a href="" ng-click="order('name')" class="c-table__sort" ng-class="getClass('name')"></a></th>
+            <th>Code <a href="" ng-click="order('code')" class="c-table__sort" ng-class="getClass('code')"></a></th>
+            <th>Price <a href="" ng-click="order('price')" class="c-table__sort" ng-class="getClass('price')"></a></th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="customer in customers | filter:search">
-            <td>{{ customer.name }}</td>
-            <td>{{ customer.email }}</td>
-            <td>{{ customer.age }}</td>
-            <td>{{ customer.gender }}</td>
-            <td>{{ customer.postalcode }}</td>
-            <td>{{ customer.education }}</td>
+        <tr ng-repeat="product in products | orderBy:predicate:reverse | filter:search">
+            <td>{{ product.productId }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.code }}</td>
+            <td>{{ product.price }}</td>
         </tr>
     </tbody>
 </table>

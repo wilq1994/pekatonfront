@@ -1,5 +1,5 @@
 <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
-<table class="c-table c-table--striped">
+<table class="c-table c-table--striped c-table--id">
     <thead>
         <tr>
             <th>Id <a href="" ng-click="order('customerId')" class="c-table__sort" ng-class="getClass('customerId')"></a></th>
@@ -12,7 +12,7 @@
     <tbody>
         <tr ng-repeat="customer in customers | orderBy:predicate:reverse | filter:search ">
             <td>{{ customer.customerId }}</td>
-            <td>{{ customer.eMail }}</td>
+            <td><a href="#/klienci/{{ customer.customerId }}">{{ customer.eMail }}</a></td>
             <td>{{ customer.gender }}</td>
             <td>{{ customer.postCode }}</td>
             <td>{{ customer.education }}</td>
