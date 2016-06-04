@@ -1,0 +1,104 @@
+html {
+    height: 100%;
+}
+body {
+    background: #f0f0f0;
+    display: flex;
+    min-height: 100%;
+    font-family: 'Lato', sans-serif;
+}
+
+/*--- LAYOUT ---*/
+.l-wrapper {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+    min-height: 100%;
+}
+
+.l-sidebar {
+    background: #1E4F7F;
+    flex: 0 0 300px;
+    display: flex;
+    flex-direction: column;
+}
+    .l-sidebar__title {
+        margin: 40px 20px 20px;
+        font-weight: 400;
+        font-size: 28px;
+        color: #fff;
+        flex: 0 0 auto;
+    }
+    .l-sidebar__nav {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        flex: 1 1 auto;
+    }
+        .l-sidebar__nav li {
+            margin-bottom: 1px;
+        }
+        .l-sidebar__nav a {
+            background: #184068;
+            display: block;
+            padding: 15px 20px;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 300;
+            text-decoration: none;
+        }
+            .l-sidebar__nav a:hover, .l-sidebar__nav a.is-active {
+                background: #15375A;
+            }
+    .l-sidebar__copyright {
+        color: #79A7D5;
+        font-size: 14px;
+        flex: 0 0 auto;
+        padding: 20px;
+    }
+
+.l-main {
+    width: 100%;
+}
+    .l-main__head {
+        background: #EAEAEA;
+        overflow: hidden;
+        height: 95px;
+        display: flex;
+        align-items: flex-end;
+    }
+    .l-main .content {
+        padding: 0 30px;
+    }
+    .l-main__body {
+        padding-top: 30px;
+    }
+    .l-main h2 {
+        margin: 0 0 18px;
+        font-size: 36px;
+        font-weight: 400;
+        color: #1E4F7F;
+    }
+    .l-main h3 {
+        font-size: 20px;
+        font-weight: 400;
+        margin: 0 0 30px;
+    }
+
+.l-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+    .l-row__column {
+        flex: 0 1 49%;
+        width: 49%;
+    }
+
+/*--- SECTIONS --- */
+.section {
+    background: #fff;
+    margin-bottom: 30px;
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    padding: 20px;
+}
