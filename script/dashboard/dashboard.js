@@ -1,3 +1,3 @@
-app.controller('dashboardCtrl', function($scope){
-    $scope.value = "#";
+app.controller('dashboardCtrl', function($scope, Page){
+    Page.setTitle('Dashboard');
 });
