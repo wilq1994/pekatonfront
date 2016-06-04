@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <script src="node_modules/angular/angular.min.js"></script>
         <script src="node_modules/angular-route/angular-route.min.js"></script>
+        <script src="node_modules/angular-animate/angular-animate.min.js"></script>
     </head>
     <body ng-controller="appCtrl">
         <div class="l-wrapper">
@@ -19,6 +20,7 @@
                     <li><a href="#/" ng-class="getClass('/')">Dashboard</a></li>
                     <li><a href="#/klienci" ng-class="getClass('/klienci')">Klienci</a></li>
                     <li><a href="#/zamowienia" ng-class="getClass('/zamowienia')">Zamówienia</a></li>
+                    <li><a href="#/produkty" ng-class="getClass('/produkty')">Produkty</a></li>
                 </ul>
                 <span class="l-sidebar__copyright">Copyright © 2016 Mięsny Team</span>
             </div>
@@ -38,5 +40,6 @@
         <script src="script/dashboard/dashboard.js"></script>
         <script src="script/customers/customers.js"></script>
         <script src="script/orders/orders.js"></script>
+        <script src="script/products/products.js"></script>
     </body>
 </html>

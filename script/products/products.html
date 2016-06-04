@@ -1,0 +1,23 @@
+<input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
+<table class="c-table c-table--striped">
+    <thead>
+        <tr>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Wiek</th>
+            <th>Płeć</th>
+            <th>Kod pocztowy</th>
+            <th>Edukacja</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="customer in customers | filter:search">
+            <td>{{ customer.name }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.age }}</td>
+            <td>{{ customer.gender }}</td>
+            <td>{{ customer.postalcode }}</td>
+            <td>{{ customer.education }}</td>
+        </tr>
+    </tbody>
+</table>

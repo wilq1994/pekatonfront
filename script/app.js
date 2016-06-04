@@ -1,10 +1,11 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'ngAnimate']);
 
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when("/", { templateUrl: 'script/dashboard/dashboard.html', controller: 'dashboardCtrl' })
         .when("/klienci", { templateUrl: 'script/customers/customers.html', controller: 'customersCtrl' })
         .when("/zamowienia", { templateUrl: 'script/orders/orders.html', controller: 'ordersCtrl' })
+        .when("/produkty", { templateUrl: 'script/products/products.html', controller: 'productsCtrl' })
         .otherwise('/');
 }]);
 

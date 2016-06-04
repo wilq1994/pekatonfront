@@ -1,0 +1,106 @@
+[
+    {
+    "name": "Wacek Nowak",
+    "email": "wacus@gmail.com",
+    "age": 22,
+    "gender": "female",
+    "postalcode": "39-200",
+    "education": "primary"
+    },
+    {
+        "name": "Roman Kowalski",
+        "email": "darek@gmail.com",
+        "age": 23,
+        "gender": "male",
+        "postalcode": "36-200",
+        "education": "primary"
+    },
+    {
+        "name": "Roman Kowalski",
+        "email": "carek@gmail.com",
+        "age": 21,
+        "gender": "male",
+        "postalcode": "36-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 24,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 20,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 18,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 18,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 18,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 14,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 13,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 12,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 11,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    },
+    {
+        "name": "Wacek Nowak",
+        "email": "wacus@gmail.com",
+        "age": 10,
+        "gender": "female",
+        "postalcode": "39-200",
+        "education": "primary"
+    }
+]
