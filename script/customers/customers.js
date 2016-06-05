@@ -1,4 +1,4 @@
-app.controller('customersCtrl', function($scope, $http, page, customers){
+app.controller('customersCtrl', function($scope, $http, $location, page, customers){
     page.setTitle('Klienci');
 
     customers.getAll().then(function(result){
@@ -19,11 +19,14 @@ app.controller('customersCtrl', function($scope, $http, page, customers){
         }
         return null;
     }
+    $scope.go = function ( path ) {
+      $location.path( path );
+    };
 });
 
 app.controller('customerCtrl', function($scope, $routeParams, page, customersPromising){
     page.setTitle('Klient');
-    
+
     customersPromising.getById($routeParams.id).then(function(customer){
         $scope.customer = customer;
     });

@@ -1,5 +1,9 @@
-app.controller('dashboardCtrl', function($scope, $http, page){
+app.controller('dashboardCtrl', function($scope, $http, $location, page){
     page.setTitle('Dashboard');
+
+    $scope.go = function ( path ) {
+      $location.path( path );
+    };
 });
 
 app.controller('customerPromisingCtrl', function($scope, $http, customersPromising){

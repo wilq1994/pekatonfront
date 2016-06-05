@@ -17,7 +17,7 @@
         <tbody>
             <tr ng-repeat="node in customers | orderBy:predicate:reverse | filter:search" ng-class="getColor(node.factor)">
                 <td>{{ node.customer.customerId }}</td>
-                <td><a href="#/klienci/{{ node.customer.customerId }}">{{ node.customer.eMail }}</a></td>
+                <td ng-click="go('/klienci/'+node.customer.customerId)")>{{ node.customer.eMail }}</td>
                 <td>{{ node.factor | number:2 }}</td>
                 <td>{{ node.averageVisitTime | number:2 }}</td>
                 <td>{{ node.visitsCount }}</td>
@@ -54,17 +54,7 @@
     </div>
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Sprzedaż</h3>
-            <div ng-controller="purchaseChartCtrl">
-                <div class="c-tabs">
-                    <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
-                    <button ng-class="getClass('productCounter')" ng-click="change('productCounter')">ProductCounter</button>
-                    <button ng-class="getClass('value')" ng-click="change('value')">Value</button>
-                </div>
-                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
-                  chart-labels="labels" chart-legend="true" chart-series="series">
-                </canvas>
-            </div>
+            <h3>Płeć</h3>
         </section>
     </div>
 </div>
@@ -77,6 +67,21 @@
                     <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
                     <button ng-class="getClass('activeUsers')" ng-click="change('activeUsers')">Active users</button>
                     <button ng-class="getClass('averageEntryTime')" ng-click="change('averageEntryTime')">Average entry time</button>
+                </div>
+                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+            </div>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Sprzedaż</h3>
+            <div ng-controller="purchaseChartCtrl">
+                <div class="c-tabs">
+                    <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
+                    <button ng-class="getClass('productCounter')" ng-click="change('productCounter')">Product counter</button>
+                    <button ng-class="getClass('value')" ng-click="change('value')">Value</button>
                 </div>
                 <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
                   chart-labels="labels" chart-legend="true" chart-series="series">
