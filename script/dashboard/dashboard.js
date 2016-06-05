@@ -60,6 +60,7 @@ app.controller('popularProductsCtrl', function($scope, $http){
 
 app.controller('purchaseChartCtrl', function($scope, $http){
     $http.get('http://localhost:8080/purchase/statistics').then(function(data){
+        $scope.current = 'counter';
         $scope.dates = [];
         $scope.counter = [];
         $scope.productCounter = [];
@@ -76,14 +77,19 @@ app.controller('purchaseChartCtrl', function($scope, $http){
     });
 
     $scope.change = function(category){
-        console.log($scope[category]);
+        $scope.current = category;
         $scope.data = [$scope[category]];
+    }
+
+    $scope.getClass = function(category){
+        return ($scope.current === category)? 'is-active' : null;
     }
 });
 
 
 app.controller('entryChartCtrl', function($scope, $http){
     $http.get('http://localhost:8080/entry/statistics').then(function(data){
+        $scope.current = 'counter';
         $scope.dates = [];
         $scope.counter = [];
         $scope.activeUsers = [];
@@ -100,7 +106,11 @@ app.controller('entryChartCtrl', function($scope, $http){
     });
 
     $scope.change = function(category){
-        console.log($scope[category]);
+        $scope.current = category;
         $scope.data = [$scope[category]];
+    }
+
+    $scope.getClass = function(category){
+        return ($scope.current === category)? 'is-active' : null;
     }
 });

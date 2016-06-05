@@ -341,3 +341,29 @@ body {
     border: 0;
     box-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
+
+.c-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+    .c-tabs button {
+        background: none;
+        border: 0;
+        outline: 0;
+        padding: 15px;
+        border: 1px solid #fff;
+        cursor: pointer;
+        transition: background 0.5s ease;
+    }
+        .c-tabs button:hover {
+            background: #FAFAFA;
+        }
+        .c-tabs button.is-active {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            bottom: -1px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 16px;
+        }
