@@ -66,6 +66,38 @@
 <div class="l-row l-row--2">
     <div class="l-row__column">
         <section class="c-box">
+            <h3>Likes</h3>
+            <div ng-controller="entryChartCtrl">
+                <div class="c-tabs">
+                    <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
+                    <button ng-class="getClass('activeUsers')" ng-click="change('activeUsers')">Active users</button>
+                    <button ng-class="getClass('averageEntryTime')" ng-click="change('averageEntryTime')">Average entry time</button>
+                </div>
+                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+            </div>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Sale</h3>
+            <div ng-controller="purchaseChartCtrl">
+                <div class="c-tabs">
+                    <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
+                    <button ng-class="getClass('productCounter')" ng-click="change('productCounter')">Product counter</button>
+                    <button ng-class="getClass('value')" ng-click="change('value')">Value</button>
+                </div>
+                <canvas id="line" class="chart chart-line" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="l-row l-row--2">
+    <div class="l-row__column">
+        <section class="c-box">
             <h3>Entries</h3>
             <div ng-controller="entryChartCtrl">
                 <div class="c-tabs">
