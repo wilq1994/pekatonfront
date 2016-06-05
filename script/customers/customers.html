@@ -12,7 +12,7 @@
     <tbody>
         <tr ng-repeat="customer in customers | orderBy:predicate:reverse | filter:search ">
             <td>{{ customer.customerId }}</td>
-            <td ng-click="go('/klienci/'+customer.customerId)">{{ customer.eMail }}</td>
+            <td ng-click="go('/customers/'+customer.customerId)">{{ customer.eMail }}</td>
             <td>{{ customer.gender }}</td>
             <td>{{ customer.postCode }}</td>
             <td>{{ customer.education }}</td>

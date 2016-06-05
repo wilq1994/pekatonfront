@@ -63,6 +63,7 @@ app.controller('popularProductsCtrl', function($scope, $http){
 });
 
 app.controller('purchaseChartCtrl', function($scope, $http){
+
     $http.get('http://localhost:8080/purchase/statistics').then(function(data){
         $scope.current = 'counter';
         $scope.dates = [];
@@ -117,4 +118,22 @@ app.controller('entryChartCtrl', function($scope, $http){
     $scope.getClass = function(category){
         return ($scope.current === category)? 'is-active' : null;
     }
+});
+
+
+app.controller('genderChartCtrl', function($scope, $http){
+    $http.get('http://localhost:8080/customer/statistics').then(function(data){
+        $scope.labels = ["Male","Female"];
+        $scope.values = [17,16];
+
+        console.log($scope.labels);
+
+        // angular.forEach(data.data, function(el){
+        //     console.log(el);
+        //     $scope.values.push(el);
+        // });
+
+        $scope.labels = [$scope.labels];
+        $scope.data = [$scope.values];
+    });
 });

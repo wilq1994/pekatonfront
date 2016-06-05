@@ -1,5 +1,5 @@
 app.controller('customersCtrl', function($scope, $http, $location, page, customers){
-    page.setTitle('Klienci');
+    page.setTitle('Customers');
 
     customers.getAll().then(function(result){
         $scope.customers = result.data;
@@ -25,7 +25,7 @@ app.controller('customersCtrl', function($scope, $http, $location, page, custome
 });
 
 app.controller('customerCtrl', function($scope, $routeParams, page, customersPromising){
-    page.setTitle('Klient');
+    page.setTitle('Customer');
 
     customersPromising.getById($routeParams.id).then(function(customer){
         $scope.customer = customer;

@@ -230,7 +230,7 @@ body {
     .c-table th {
         text-align: left;
         color: #FFFFFF;
-        background: #A3A3A3;
+        background: #5691CB;
         font-size: 18px;
         font-weight: 400;
         padding: 15px 0 15px 15px;
@@ -247,7 +247,7 @@ body {
             font-weight: 400;
         }
         .c-table--id th:first-child {
-            width: 1%;
+            width: 1px;
         }
         .c-table--id td:nth-child(2) {
             font-weight: 400;
@@ -293,7 +293,7 @@ body {
             }
         .c-table__details ul {
             list-style: none;
-            padding: 0;
+            padding: 0 0 0 110px;
             margin: 0;
         }
             .c-table__details li {
@@ -303,6 +303,21 @@ body {
                 width: 120px;
                 display: inline-block;
             }
+    .c-table__list-customer {
+        background: url('../img/customer-icon.png') no-repeat 15px top;
+    }
+    .c-table__list-product {
+        background: url('../img/products-icon.png') no-repeat left top;
+    }
+    .c-table__list-products-1 {
+        background: url('../img/products-icon-1.png') no-repeat left top;
+    }
+    .c-table__list-products-2 {
+        background: url('../img/products-icon-2.png') no-repeat left top;
+    }
+    .c-table__list-products-3 {
+        background: url('../img/products-icon-3.png') no-repeat left top;
+    }
 
 
     .c-table__sort {

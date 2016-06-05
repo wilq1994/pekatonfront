@@ -3,7 +3,7 @@
     <thead>
         <tr>
             <th>Id <a href="" ng-click="order('purchaseId')" class="c-table__sort" ng-class="getClass('purchaseId')"></a></th>
-            <th>Order date <a href="" ng-click="order('orderDate')" class="c-table__sort" ng-class="getClass('orderDate')"></a></th>
+            <th>Purchase date <a href="" ng-click="order('orderDate')" class="c-table__sort" ng-class="getClass('orderDate')"></a></th>
             <th>Value <a href="" ng-click="order('value')" class="c-table__sort" ng-class="getClass('value')"></a></th>
             <th>Delivery <a href="" ng-click="order('delivery')" class="c-table__sort" ng-class="getClass('delivery')"></a></th>
         </tr>
@@ -19,7 +19,7 @@
             <td colspan="4">
                 <div class="l-row l-row--2">
                     <div class="l-row__column">
-                        <ul>
+                        <ul class="c-table__list-customer">
                             <li><strong>Customer id:</strong>{{ purchase.customer.customerId }}</li>
                             <li><strong>Gender:</strong>{{ purchase.customer.gender }}</li>
                             <li><strong>Post code:</strong>{{ purchase.customer.postCode }}</li>
@@ -29,7 +29,7 @@
                     </div>
                     <div class="l-row__column">
                         <div ng-repeat="product in purchase.products">
-                            <ul>
+                            <ul class="c-table__list-product">
                                 <li><strong>Product id:</strong>{{ product.productId }}</li>
                                 <li><strong>Name:</strong>{{ product.name }}</li>
                                 <li><strong>Code:</strong>{{ product.code }}</li>

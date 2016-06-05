@@ -1,5 +1,5 @@
 app.controller('ordersCtrl', function($scope, page, orders){
-    page.setTitle('Zamówienia');
+    page.setTitle('Purchases');
 
     $scope.predicate = 'purchaseId';
     $scope.reverse = false;

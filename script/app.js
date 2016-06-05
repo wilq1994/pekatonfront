@@ -3,10 +3,10 @@ var app = angular.module('app', ['ngRoute', 'ngAnimate', 'chart.js']);
 app.config(['$routeProvider', function($routeProvider){
     $routeProvider
         .when("/", { templateUrl: 'script/dashboard/dashboard.html', controller: 'dashboardCtrl' })
-        .when("/klienci", { templateUrl: 'script/customers/customers.html', controller: 'customersCtrl' })
-        .when("/zamowienia", { templateUrl: 'script/orders/orders.html', controller: 'ordersCtrl' })
-        .when("/produkty", { templateUrl: 'script/products/products.html', controller: 'productsCtrl' })
-        .when("/klienci/:id", { templateUrl: 'script/customers/customer.html', controller: 'customerCtrl' })
+        .when("/customers", { templateUrl: 'script/customers/customers.html', controller: 'customersCtrl' })
+        .when("/purchases", { templateUrl: 'script/orders/orders.html', controller: 'ordersCtrl' })
+        .when("/products", { templateUrl: 'script/products/products.html', controller: 'productsCtrl' })
+        .when("/customers/:id", { templateUrl: 'script/customers/customer.html', controller: 'customerCtrl' })
         .otherwise('/');
 }]);
 

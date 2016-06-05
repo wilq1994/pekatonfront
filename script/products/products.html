@@ -1,19 +1,33 @@
 <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
-<table class="c-table c-table--id c-table--striped">
+<table class="c-table c-table--id c-table--striped c-table--details">
     <thead>
         <tr>
-            <th>Id <a href="" ng-click="order('productId')" class="c-table__sort" ng-class="getClass('productId')"></a></th>
-            <th>Name <a href="" ng-click="order('name')" class="c-table__sort" ng-class="getClass('name')"></a></th>
-            <th>Code <a href="" ng-click="order('code')" class="c-table__sort" ng-class="getClass('code')"></a></th>
-            <th>Price <a href="" ng-click="order('price')" class="c-table__sort" ng-class="getClass('price')"></a></th>
+            <th>Id <a href="" ng-click="order('product.productId')" class="c-table__sort" ng-class="getClass('product.productId')"></a></th>
+            <th>Name <a href="" ng-click="order('product.name')" class="c-table__sort" ng-class="getClass('product.name')"></a></th>
+            <th>Code <a href="" ng-click="order('product.code')" class="c-table__sort" ng-class="getClass('product.code')"></a></th>
+            <th>Price <a href="" ng-click="order('product.price')" class="c-table__sort" ng-class="getClass('product.price')"></a></th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="product in products | orderBy:predicate:reverse | filter:search">
-            <td>{{ product.productId }}</td>
-            <td>{{ product.name }}</td>
-            <td>{{ product.code }}</td>
-            <td>{{ product.price }}</td>
+        <tr ng-repeat-start="product in products | orderBy:predicate:reverse | filter:search" ng-class-even="'even'" ng-click="toggleDetails($index)">
+            <td>{{ product.product.productId }}</td>
+            <td>{{ product.product.name }}</td>
+            <td>{{ product.product.code }}</td>
+            <td>{{ product.product.price }}</td>
+        </tr>
+        <tr class="c-table__details" ng-repeat-end  ng-class-even="'even'">
+            <td colspan="4">
+                <div class="l-row l-row--3">
+                    <div class="l-row__column" ng-repeat="recommend in product.recommendedProducts">
+                        <ul class="c-table__list-products-{{$index+1}}">
+                            <li><strong>Product id:</strong>{{ recommend.productId }}</li>
+                            <li><strong>Name:</strong>{{ recommend.name }}</li>
+                            <li><strong>Code:</strong>{{ recommend.code }}</li>
+                            <li><strong>Price:</strong>{{ recommend.price }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </td>
         </tr>
     </tbody>
 </table>

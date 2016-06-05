@@ -1,12 +1,12 @@
 app.controller('productsCtrl', function($scope, $http, page){
-    page.setTitle('Produkty');
+    page.setTitle('Products');
 
-    $http.get('http://localhost:8080/product')
+    $http.get('http://localhost:8080/product/recommend')
         .then(function(result){
             $scope.products = result.data;
         });
 
-    $scope.predicate = 'productId';
+    $scope.predicate = 'product.productId';
     $scope.reverse = false;
 
     $scope.order = function(predicate) {
@@ -19,5 +19,18 @@ app.controller('productsCtrl', function($scope, $http, page){
             return 'is-active';
         }
         return null;
+    }
+    $scope.toggleDetails = function(id){
+        var detail = angular.element(document.querySelectorAll(".c-table__details")[id]),
+            detailRow = angular.element(document.querySelectorAll(".c-table__details")[id].querySelector('.l-row')),
+            h = detailRow.prop('scrollHeight');
+
+        if(detail.hasClass('is-active')){
+            detailRow.css('height', '0px');
+            detail.removeClass('is-active');
+        }else{
+            detailRow.css('height', h+'px');
+            detail.addClass('is-active');
+        }
     }
 });

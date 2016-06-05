@@ -1,5 +1,5 @@
 <section class="c-box">
-    <h3>Obiecujący klienci</h3>
+    <h3>Promising customers</h3>
     <input class="c-search" type="text" ng-model="search" placeholder="Szukaj...">
     <table class="c-table c-table--id" ng-controller="customerPromisingCtrl">
         <thead>
@@ -7,17 +7,17 @@
                 <th>Id <a href="" ng-click="order('customerId')" class="c-table__sort" ng-class="getClass('customerId')"></a></th>
                 <th>Email <a href="" ng-click="order('eMail')" class="c-table__sort" ng-class="getClass('eMail')"></a></th>
                 <th>Factor <a href="" ng-click="order('factor')" class="c-table__sort" ng-class="getClass('factor')"></a></th>
-                <th>averageVisitTime <a href="" ng-click="order('averageVisitTime')" class="c-table__sort" ng-class="getClass('averageVisitTime')"></a></th>
-                <th>visitsCount <a href="" ng-click="order('visitsCount')" class="c-table__sort" ng-class="getClass('visitsCount')"></a></th>
-                <th>directVisitsCount <a href="" ng-click="order('directVisitsCount')" class="c-table__sort" ng-class="getClass('directVisitsCount')"></a></th>
-                <th>purchasesCount <a href="" ng-click="order('purchasesCount')" class="c-table__sort" ng-class="getClass('purchasesCount')"></a></th>
-                <th>purchasesSummaryCost <a href="" ng-click="order('purchasesSummaryCost')" class="c-table__sort" ng-class="getClass('purchasesSummaryCost')"></a></th>
+                <th>Average visit time <a href="" ng-click="order('averageVisitTime')" class="c-table__sort" ng-class="getClass('averageVisitTime')"></a></th>
+                <th>Visits count <a href="" ng-click="order('visitsCount')" class="c-table__sort" ng-class="getClass('visitsCount')"></a></th>
+                <th>Direct visits count <a href="" ng-click="order('directVisitsCount')" class="c-table__sort" ng-class="getClass('directVisitsCount')"></a></th>
+                <th>Purchases count <a href="" ng-click="order('purchasesCount')" class="c-table__sort" ng-class="getClass('purchasesCount')"></a></th>
+                <th>Purchases summary cost <a href="" ng-click="order('purchasesSummaryCost')" class="c-table__sort" ng-class="getClass('purchasesSummaryCost')"></a></th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="node in customers | orderBy:predicate:reverse | filter:search" ng-class="getColor(node.factor)">
                 <td>{{ node.customer.customerId }}</td>
-                <td ng-click="go('/klienci/'+node.customer.customerId)")>{{ node.customer.eMail }}</td>
+                <td ng-click="go('/customers/'+node.customer.customerId)")>{{ node.customer.eMail }}</td>
                 <td>{{ node.factor | number:2 }}</td>
                 <td>{{ node.averageVisitTime | number:2 }}</td>
                 <td>{{ node.visitsCount }}</td>
@@ -31,7 +31,7 @@
 <div class="l-row l-row--2">
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Najlepsze produkty</h3>
+            <h3>The best products</h3>
             <table class="c-table c-table--id" ng-controller="popularProductsCtrl">
                 <thead>
                     <tr>
@@ -54,14 +54,19 @@
     </div>
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Płeć</h3>
+            <h3>Gender</h3>
+            <div ng-controller="genderChartCtrl">
+                <canvas id="doughnut" class="chart chart-doughnut"
+                  chart-data="data" chart-labels="labels">
+                </canvas>
+            </div>
         </section>
     </div>
 </div>
 <div class="l-row l-row--2">
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Ruch na stronie</h3>
+            <h3>Entries</h3>
             <div ng-controller="entryChartCtrl">
                 <div class="c-tabs">
                     <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
@@ -76,14 +81,14 @@
     </div>
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Sprzedaż</h3>
+            <h3>Sale</h3>
             <div ng-controller="purchaseChartCtrl">
                 <div class="c-tabs">
                     <button ng-class="getClass('counter')" ng-click="change('counter')">Counter</button>
                     <button ng-class="getClass('productCounter')" ng-click="change('productCounter')">Product counter</button>
                     <button ng-class="getClass('value')" ng-click="change('value')">Value</button>
                 </div>
-                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
+                <canvas id="line" class="chart chart-line" chart-data="data"
                   chart-labels="labels" chart-legend="true" chart-series="series">
                 </canvas>
             </div>
