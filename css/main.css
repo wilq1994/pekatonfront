@@ -67,9 +67,14 @@ body {
 
 .l-sidebar {
     background: #5691CB;
-    flex: 0 0 300px;
     display: flex;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    z-index: 2;
 }
     .l-sidebar__logo {
         display: block;
@@ -97,7 +102,7 @@ body {
             background-repeat: no-repeat;
             background-position: 15px center;
             display: block;
-            padding: 15px 20px;
+            padding: 20px;
             padding-left: 65px;
             color: #fff;
             font-size: 18px;
@@ -123,6 +128,9 @@ body {
             .l-sidebar__nav li:nth-child(4) a {
                 background-image: url('../img/sidebar-4.png');
             }
+            .l-sidebar__nav li:nth-child(5) a {
+                background-image: url('../img/sidebar-5.png');
+            }
     .l-sidebar__copyright {
         color: #E0F0FF;
         font-size: 14px;
@@ -132,6 +140,8 @@ body {
 
 .l-main {
     width: 100%;
+    padding-left: 300px;
+    box-sizing: border-box;
 }
     .l-main__head {
         background: #fff;
@@ -161,6 +171,7 @@ body {
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
     .l-row__column {
         display: flex;
@@ -205,7 +216,7 @@ body {
     box-sizing: border-box;
 }
     .c-box h3 {
-        color: #336699;
+        color: #5691CB;
         font-size: 22px;
         font-weight: 400;
         margin: 0 0 20px;
@@ -318,6 +329,7 @@ body {
                 width: 120px;
                 display: inline-block;
             }
+
     .c-table__list-customer {
         background: url('../img/customer-icon.png') no-repeat 15px top;
     }
@@ -333,6 +345,25 @@ body {
     .c-table__list-products-3 {
         background: url('../img/products-icon-3.png') no-repeat left top;
     }
+
+    .c-table__details--products .l-row {
+        position: relative;
+    }
+        .c-table__details--products h3 {
+            margin: 0;
+            position: absolute;
+            top: -25px;
+            left: 20px;
+            font-weight: 400;
+            color: #5691CB;
+            transition: top 0.5s ease;
+        }
+    .c-table__details--products.is-active .l-row {
+        padding-top: 60px;
+    }
+        .c-table__details--products.is-active  h3 {
+            top: 15px;
+        }
 
 
     .c-table__sort {
@@ -401,3 +432,154 @@ body {
             border-bottom: 1px solid #fff;
             padding-bottom: 16px;
         }
+
+.c-review {
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+    .c-review__head {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .c-review__head strong {
+        margin-right: 10px;
+    }
+    .c-review__head .c-stars {
+        flex: 1 1 auto;
+    }
+    .c-review__head span {
+        color: #A1A1A1;
+        font-size: 14px;
+    }
+    .c-review__body {
+        color: #7E7E7E;
+    }
+.c-stars {
+    display: flex;
+}
+    .c-stars i {
+        background: url('../img/star.png') no-repeat left top;
+        flex: 0 0 22px;
+        width: 22px;
+        height: 21px;
+        margin-right: 1px;
+    }
+    .c-stars--1 i:nth-child(1){ background-position-x: -22px; }
+
+    .c-stars--2 i:nth-child(1){ background-position-x: -22px; }
+    .c-stars--2 i:nth-child(2){ background-position-x: -22px; }
+
+    .c-stars--3 i:nth-child(1){ background-position-x: -22px; }
+    .c-stars--3 i:nth-child(2){ background-position-x: -22px; }
+    .c-stars--3 i:nth-child(3){ background-position-x: -22px; }
+
+    .c-stars--4 i:nth-child(1){ background-position-x: -22px; }
+    .c-stars--4 i:nth-child(2){ background-position-x: -22px; }
+    .c-stars--4 i:nth-child(3){ background-position-x: -22px; }
+    .c-stars--4 i:nth-child(4){ background-position-x: -22px; }
+
+    .c-stars--5 i{ background-position-x: -22px; }
+
+.c-comment {
+    border: 1px solid #f0f0f0;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+    .c-comment__head {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-size: 16px;
+    }
+    .c-comment__head strong {
+        margin-right: 10px;
+    }
+    .c-comment__head span {
+        color: #A1A1A1;
+        font-size: 14px;
+    }
+    .c-comment__count {
+        background: url('../img/reply-icon.png') no-repeat left center;
+        padding-left: 45px;
+        height: 38px;
+        position: absolute;
+        right: 110px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 35px;
+        color: #369;
+        text-align: center;
+        width: 50px;
+    }
+    .c-comment__shares {
+        background: url('../img/share-icon.png') no-repeat left center;
+        padding-left: 45px;
+        height: 38px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 37px;
+        font-weight: 700;
+        line-height: 35px;
+        color: #369;
+        text-align: center;
+        width: 50px;
+    }
+    .c-comment__body {
+        color: #7E7E7E;
+    }
+
+.c-gender-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+    .c-gender-legend li {
+        margin-bottom: 10px;
+    }
+    .c-gender-legend li:before {
+        background: #46BFBD;
+        display: inline-block;
+        content: ' ';
+        vertical-align: middle;
+        margin-right: 10px;
+        width: 20px;
+        height: 20px;
+    }
+    .c-gender-legend li:last-child:before {
+        background: #F7464A;
+    }
+
+#postcodeMap {
+    max-width: 400px;
+    margin: 0 auto;
+    display: block;
+}
+    #postcodeMap path {
+        fill: #44BA51;
+        opacity: 0.4;
+    }
+    #postcodeMap .postcodeMap--1 path { opacity: 1; }
+    #postcodeMap .postcodeMap--2 path { opacity: 0.9; }
+    #postcodeMap .postcodeMap--3 path { opacity: 0.8; }
+    #postcodeMap .postcodeMap--4 path { opacity: 0.7; }
+    #postcodeMap .postcodeMap--5 path { opacity: 0.6; }
+
+    #postcodeMap path {
+        transform-origin: center;
+        transition: all 0.5s;
+        z-index: 1;
+    }
+
+    #postcodeMap path:hover {
+        transform: scale(1.3,1.3);
+    }

@@ -30,6 +30,7 @@ app.controller('customerCtrl', function($scope, $routeParams, page, customersPro
     customersPromising.getById($routeParams.id).then(function(customer){
         $scope.customer = customer;
     });
+
 });
 
 app.directive('numberInt', function($timeout) {

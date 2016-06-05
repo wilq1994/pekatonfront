@@ -123,17 +123,37 @@ app.controller('entryChartCtrl', function($scope, $http){
 
 app.controller('genderChartCtrl', function($scope, $http){
     $http.get('http://localhost:8080/customer/statistics').then(function(data){
-        $scope.labels = ["Male","Female"];
-        $scope.values = [17,16];
+        $scope.labels = ["Dupa2", "Dupa","Female", "Male"];
+        $scope.data = [0,0];
 
-        console.log($scope.labels);
+        angular.forEach(data.data, function(el){
+            $scope.data.push(el);
+        });
+    });
+});
 
-        // angular.forEach(data.data, function(el){
-        //     console.log(el);
-        //     $scope.values.push(el);
-        // });
 
-        $scope.labels = [$scope.labels];
-        $scope.data = [$scope.values];
+app.controller('likesChartCtrl', function($scope, $http){
+    $http.get('http://localhost:8080/facebook/likes').then(function(data){
+        $scope.days = [];
+        $scope.likes = [];
+
+        angular.forEach(data.data, function(el,id){
+            $scope.days.push(el.day);
+            $scope.likes.push(el.likes);
+        });
+
+
+        $scope.labels = $scope.days;
+        $scope.data = [$scope.likes];
+    });
+});
+
+
+app.controller('postcodeMapCtrl', function($scope, $http){
+    $http.get('http://localhost:8080/purchase/postcode').then(function(data){
+        angular.forEach(data.data, function(el,id){
+            angular.element(document.querySelector('#'+el.district)).addClass('postcodeMap--'+(5-id));
+        });
     });
 });

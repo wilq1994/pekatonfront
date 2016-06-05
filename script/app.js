@@ -6,9 +6,11 @@ app.config(['$routeProvider', function($routeProvider){
         .when("/customers", { templateUrl: 'script/customers/customers.html', controller: 'customersCtrl' })
         .when("/purchases", { templateUrl: 'script/orders/orders.html', controller: 'ordersCtrl' })
         .when("/products", { templateUrl: 'script/products/products.html', controller: 'productsCtrl' })
+        .when("/socialmedia", { templateUrl: 'script/socialmedia/socialmedia.html', controller: 'socialmediaCtrl' })
         .when("/customers/:id", { templateUrl: 'script/customers/customer.html', controller: 'customerCtrl' })
         .otherwise('/');
 }]);
+
 
 app.factory('page', function() {
    var title = 'Dashboard';

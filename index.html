@@ -22,12 +22,13 @@
         </div>
         <div class="l-wrapper" ng-cloak>
             <div class="l-sidebar">
-                <img src="img/logo.png" class="l-sidebar__logo">
+                <div class="l-sidebar__title">Mięsny.pl</div>
                 <ul class="l-sidebar__nav">
                     <li><a href="#/" ng-class="getClass('/')">Dashboard</a></li>
                     <li><a href="#/customers" ng-class="getClass('/customers')">Customers</a></li>
                     <li><a href="#/purchases" ng-class="getClass('/purchases')">Purchases</a></li>
                     <li><a href="#/products" ng-class="getClass('/products')">Products</a></li>
+                    <li><a href="#/socialmedia" ng-class="getClass('/socialmedia')">Social media</a></li>
                 </ul>
                 <span class="l-sidebar__copyright">Copyright © 2016 Mięsny Team</span>
             </div>
@@ -48,8 +49,9 @@
         <script src="script/customers/customers.js"></script>
         <script src="script/orders/orders.js"></script>
         <script src="script/products/products.js"></script>
+        <script src="script/socialmedia/socialmedia.js"></script>
 
-        <script src="node_modules/angular-chart.js/node_modules/chart.js/dist/Chart.min.js"></script>
-        <script src="node_modules/angular-chart.js/dist/angular-chart.min.js"></script>
+        <script src="node_modules/chart.js/dist/Chart.min.js"></script>
+        <script src="node_modules/angular-chart.js/angular-chart.js"></script>
     </body>
 </html>

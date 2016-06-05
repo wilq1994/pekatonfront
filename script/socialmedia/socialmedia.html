@@ -1,0 +1,45 @@
+<div class="l-row l-row--2">
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Facebook likes</h3>
+            <div ng-controller="likesChartCtrl"  style="height: 100px !important;">
+                <canvas class="chart chart-bar" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+            </div>
+        </section>
+    </div>
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Facebook reviews</h3>
+            <div class="c-review" ng-repeat="review in reviews">
+                <div class="c-review__head">
+                    <strong>{{ review.userName }}</strong>
+                    <div class="c-stars" ng-class="getStars(review.reviewValue)"><i></i><i></i><i></i><i></i><i></i></div>
+                    <span>{{ review.reviewAddDate }}</span>
+                </div>
+                <div class="c-review__body">
+                    {{ review.reviewText }}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="l-row l-row--2">
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Facebook comments</h3>
+            <div class="c-comment" ng-repeat="comment in comments">
+                <span class="c-comment__count">{{ comment.commentCount }}</span>
+                <span class="c-comment__shares">{{ comment.sharesCount }}</span>
+                <div class="c-comment__head">
+                    <strong>{{ comment.userName }}</strong>
+                    <span>{{ comment.addDate }}</span>
+                </div>
+                <div class="c-comment__body">
+                    {{ comment.comment }}
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

@@ -15,10 +15,11 @@
             <td>{{ product.product.code }}</td>
             <td>{{ product.product.price }}</td>
         </tr>
-        <tr class="c-table__details" ng-repeat-end  ng-class-even="'even'">
+        <tr class="c-table__details c-table__details--products" ng-repeat-end  ng-class-even="'even'">
             <td colspan="4">
                 <div class="l-row l-row--3">
                     <div class="l-row__column" ng-repeat="recommend in product.recommendedProducts">
+                        <h3>Recommended products</h3>
                         <ul class="c-table__list-products-{{$index+1}}">
                             <li><strong>Product id:</strong>{{ recommend.productId }}</li>
                             <li><strong>Name:</strong>{{ recommend.name }}</li>
