@@ -57,3 +57,50 @@ app.controller('popularProductsCtrl', function($scope, $http){
         return null;
     }
 });
+
+app.controller('purchaseChartCtrl', function($scope, $http){
+    $http.get('http://localhost:8080/purchase/statistics').then(function(data){
+        $scope.dates = [];
+        $scope.counter = [];
+        $scope.productCounter = [];
+        $scope.value = [];
+
+        angular.forEach(data.data, function(el,id){
+            $scope.dates.push(el.purchaseDate);
+            $scope.counter.push(el.counter);
+            $scope.productCounter.push(el.productCounter);
+            $scope.value.push(el.value);
+        });
+        $scope.labels = $scope.dates;
+        $scope.data = [$scope['counter']];
+    });
+
+    $scope.change = function(category){
+        console.log($scope[category]);
+        $scope.data = [$scope[category]];
+    }
+});
+
+
+app.controller('entryChartCtrl', function($scope, $http){
+    $http.get('http://localhost:8080/entry/statistics').then(function(data){
+        $scope.dates = [];
+        $scope.counter = [];
+        $scope.activeUsers = [];
+        $scope.averageEntryTime = [];
+
+        angular.forEach(data.data, function(el,id){
+            $scope.dates.push(el.entryDate);
+            $scope.counter.push(el.counter);
+            $scope.activeUsers.push(el.activeUsers);
+            $scope.averageEntryTime.push(el.averageEntryTime);
+        });
+        $scope.labels = $scope.dates;
+        $scope.data = [$scope['counter']];
+    });
+
+    $scope.change = function(category){
+        console.log($scope[category]);
+        $scope.data = [$scope[category]];
+    }
+});

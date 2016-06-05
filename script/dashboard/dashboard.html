@@ -54,9 +54,29 @@
     </div>
     <div class="l-row__column">
         <section class="c-box">
-            <h3>Wartość sprzedaży</h3>
-            <div id="chart">
-
+            <h3>Sprzedaż</h3>
+            <div ng-controller="purchaseChartCtrl">
+                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+                <button ng-click="change('counter')">Counter</button>
+                <button ng-click="change('productCounter')">ProductCounter</button>
+                <button ng-click="change('value')">Value</button>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="l-row l-row--2">
+    <div class="l-row__column">
+        <section class="c-box">
+            <h3>Ruch na stronie</h3>
+            <div ng-controller="entryChartCtrl">
+                <canvas id="line" class="chart chart-line" chart-colours="colors" chart-data="data"
+                  chart-labels="labels" chart-legend="true" chart-series="series">
+                </canvas>
+                <button ng-click="change('counter')">Counter</button>
+                <button ng-click="change('activeUsers')">Active users</button>
+                <button ng-click="change('averageEntryTime')">Average entry time</button>
             </div>
         </section>
     </div>
