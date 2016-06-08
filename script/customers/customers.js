@@ -36,20 +36,25 @@ app.controller('customerCtrl', function($scope, $routeParams, page, customersPro
 app.directive('numberInt', function($timeout) {
     return {
         link: function( $scope, elem, attrs ) {
-          elem.ready(function(){
-              attrs.val = 0;
-              attrs.max = elem.attr('data-int');
+            return $scope.$watch(attrs.number, function(newVal, oldVal) {
+                if (oldVal == null) {
+                  oldVal = 0;
+                }
+                if ((newVal != null) && newVal !== oldVal) {
+                    var val = 0;
+                    var max = newVal;
 
-              function loop(){
-                  attrs.val++;
-                  elem.text(attrs.val);
-                  if(attrs.val < attrs.max) $timeout(loop,200);
-                  else elem.text(attrs.max);
-              }
+                    function loop(){
+                        val += Math.ceil(max/3);
+                        elem.text(val);
+                        if(val < max) $timeout(loop,150);
+                        else elem.text(max);
+                    }
 
-              $timeout(loop,500);
-          })
-       }
+                    $timeout(loop,500);
+                }
+            });
+        }
     };
 });
 
@@ -57,19 +62,21 @@ app.directive('numberInt', function($timeout) {
 app.directive('numberDouble', function($timeout) {
     return {
         link: function( $scope, elem, attrs) {
-          elem.ready(function(){
-              attrs.val = 0.00;
-              attrs.max = elem.attr('data-double');
+            return $scope.$watch(attrs.number, function(newVal, oldVal) {
+                if (newVal) {
+                    var val = 0.00;
+                    var max = newVal;
 
-              function loop(){
-                  attrs.val += attrs.max/100;
-                  elem.text(attrs.val.toFixed(2));
-                  if(attrs.val < attrs.max) $timeout(loop,10);
-                  else elem.text(attrs.max);
-              }
+                    function loop(){
+                        val += max/100;
+                        elem.text(val.toFixed(2));
+                        if(val < max) $timeout(loop,10);
+                        else elem.text(max);
+                    }
 
-              $timeout(loop,500);
-          })
+                    $timeout(loop,500);
+                }
+            });
        }
     };
 });

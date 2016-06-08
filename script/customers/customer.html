@@ -12,19 +12,19 @@
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Factor</h3>
-            <strong number-double data-double="{{ customer.factor | number:2 }}">0.00</strong>
+            <strong number-double number="customer.factor | number:2">0.00</strong>
         </section>
     </div>
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Average visit time</h3>
-            <strong number-double data-double="{{ customer.averageVisitTime | number:2 }}">0.00</strong>
+            <strong number-double number="customer.averageVisitTime | number:2">0.00</strong>
         </section>
     </div>
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Visits count</h3>
-            <strong number-int data-int="{{ customer.visitsCount }}">0</strong>
+            <strong number-int number="customer.visitsCount">0</strong>
         </section>
     </div>
 </div>
@@ -33,19 +33,19 @@
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Direct visits count</h3>
-            <strong number-int data-int="{{ customer.directVisitsCount }}">0</strong>
+            <strong number-int number="customer.directVisitsCount">0</strong>
         </section>
     </div>
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Purchases count</h3>
-            <strong number-int data-int="{{ customer.purchasesCount }}">0</strong>
+            <strong number-int number="customer.purchasesCount">0</strong>
         </section>
     </div>
     <div class="l-row__column">
         <section class="c-box c-box--number">
             <h3>Purchases summary cost</h3>
-            <strong number-double data-double="{{ customer.purchasesSummaryCost | number:2 }}">0.00</strong>
+            <strong number-double number="customer.purchasesSummaryCost | number:2">0.00</strong>
         </section>
     </div>
 </div>
