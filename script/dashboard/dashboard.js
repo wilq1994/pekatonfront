@@ -157,11 +157,7 @@ app.controller('postcodeMapCtrl', function($scope, $http){
 });
 
 app.service('colorService', function() {
-    var o = {
-
-    };
-
-    o.getColor = function(ratio) {
+   this.getColor = function(ratio) {
         if(ratio>1) return 'c-table__ratio1';
         else if(ratio>0.5) return 'c-table__ratio2';
         else if(ratio>0.4) return 'c-table__ratio3';
@@ -173,6 +169,4 @@ app.service('colorService', function() {
         else if(ratio<0.9) return 'c-table__ratio7';
         else if(ratio<0) return 'c-table__ratio6';
     };
-
-    return o;
 });
