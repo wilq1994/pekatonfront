@@ -6,7 +6,7 @@ app.controller('dashboardCtrl', function($scope, $http, $location, page){
     };
 });
 
-app.controller('customerPromisingCtrl', function($scope, $http, customersPromising){
+app.controller('customerPromisingCtrl', function($scope, $http, customersPromising, colorService){
     customersPromising.getAll()
         .then(function(result){
             $scope.customers = result.data;
@@ -28,38 +28,36 @@ app.controller('customerPromisingCtrl', function($scope, $http, customersPromisi
     }
 
     $scope.getColor = function(ratio){
-        if(ratio>1) return 'c-table__ratio1';
-        else if(ratio>0.5) return 'c-table__ratio2';
-        else if(ratio>0.4) return 'c-table__ratio3';
-        else if(ratio>0.3) return 'c-table__ratio4';
-        else if(ratio>0.2) return 'c-table__ratio5';
-        else if(ratio<0.009) return 'c-table__ratio10';
-        else if(ratio<0.09) return 'c-table__ratio9';
-        else if(ratio<0.05) return 'c-table__ratio8';
-        else if(ratio<0.9) return 'c-table__ratio7';
-        else if(ratio<0) return 'c-table__ratio6';
+       return colorService.getColor(ratio);
     }
 });
 
-app.controller('popularProductsCtrl', function($scope, $http){
+app.controller('popularProductsCtrl', function($scope, $http, colorService){
     $http.get('http://localhost:8080/product/popular')
         .then(function(result){
             $scope.popularProducts = result.data;
         });
 
-    $scope.predicate = 'productId';
+    $scope.predicate = '';
     $scope.reverse = false;
     $scope.order = function(predicate) {
         $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
         $scope.predicate = predicate;
     };
+
     $scope.getClass = function(column){
         if(column === $scope.predicate){
             if($scope.reverse) return 'is-reverse';
             return 'is-active';
         }
         return null;
-    }
+    };
+
+    $scope.getColor = function(product){
+        var ratio = (1 / $scope.popularProducts.indexOf(product));
+        return colorService.getColor(ratio);
+    };
+
 });
 
 app.controller('purchaseChartCtrl', function($scope, $http){
@@ -156,4 +154,25 @@ app.controller('postcodeMapCtrl', function($scope, $http){
             angular.element(document.querySelector('#'+el.district)).addClass('postcodeMap--'+(5-id));
         });
     });
+});
+
+app.service('colorService', function() {
+    var o = {
+
+    };
+
+    o.getColor = function(ratio) {
+        if(ratio>1) return 'c-table__ratio1';
+        else if(ratio>0.5) return 'c-table__ratio2';
+        else if(ratio>0.4) return 'c-table__ratio3';
+        else if(ratio>0.3) return 'c-table__ratio4';
+        else if(ratio>0.2) return 'c-table__ratio5';
+        else if(ratio<0.009) return 'c-table__ratio10';
+        else if(ratio<0.09) return 'c-table__ratio9';
+        else if(ratio<0.05) return 'c-table__ratio8';
+        else if(ratio<0.9) return 'c-table__ratio7';
+        else if(ratio<0) return 'c-table__ratio6';
+    };
+
+    return o;
 });
