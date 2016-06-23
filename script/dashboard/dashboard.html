@@ -42,7 +42,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="product in popularProducts | orderBy:predicate:reverse">
+                    <tr ng-repeat="product in popularProducts | orderBy:predicate:reverse" 
+                    ng-class="getColor(product)">
                         <td>{{ product.productId }}</td>
                         <td>{{ product.name }}</td>
                         <td>{{ product.code }}</td>
