@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 body {
-    background: #f0f0f0;
+    background: #dde6ed;
     display: flex;
     min-height: 100%;
     font-family: 'Lato', sans-serif;
@@ -67,14 +67,14 @@ body {
 }
 
 .l-sidebar {
-    background: #5691CB;
+    background: linear-gradient(to bottom, #132b54, #1d558a);
     display: flex;
     flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    width: 300px;
+    width: 280px;
     z-index: 2;
 }
     .l-sidebar__logo {
@@ -83,7 +83,10 @@ body {
         margin: 30px auto;
     }
     .l-sidebar__title {
-        margin: 40px 20px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px;
         font-weight: 400;
         font-size: 28px;
         color: #fff;
@@ -96,10 +99,10 @@ body {
         flex: 1 1 auto;
     }
         .l-sidebar__nav li {
-            margin-bottom: 1px;
+            margin-bottom: 2px;
         }
         .l-sidebar__nav a {
-            background-color: #457CB2;
+            background-color: rgba(19, 43, 84, 0.4);
             background-repeat: no-repeat;
             background-position: 15px center;
             display: block;
@@ -108,11 +111,14 @@ body {
             color: #fff;
             font-size: 18px;
             font-weight: 300;
+            line-height: 18px;
             text-decoration: none;
             transition: background 0.3s ease;
+            opacity: 0.8;
         }
             .l-sidebar__nav a:hover, .l-sidebar__nav a.is-active {
-                background-color: #336699;
+                background-color: rgba(19, 43, 84, 1);
+                opacity: 1;
             }
             .l-sidebar__nav a.is-active {
                 font-weight: 400;
@@ -141,31 +147,31 @@ body {
 
 .l-main {
     width: 100%;
-    padding-left: 300px;
+    padding-left: 280px;
     box-sizing: border-box;
 }
     .l-main__head {
         background: #fff;
         overflow: hidden;
-        height: 94px;
+        height: 120px;
         display: flex;
         align-items: flex-end;
-        border-bottom: 1px solid #5691CB;
     }
     .l-main .content {
-        padding: 0 30px;
+        padding: 0 50px;
     }
     .l-main__body {
-        padding-top: 30px;
+        padding-top: 35px;
     }
         .l-main__body .content.ng-enter {
             animation: show 0.5s ease;
         }
     .l-main h2 {
-        margin: 0 0 18px;
+        margin: 0 0 30px;
         font-size: 36px;
         font-weight: 400;
-        color: #5691CB;
+        color: #1e486b;
+        line-height: 36px;
     }
 
 .l-row {
